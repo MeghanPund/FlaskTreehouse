@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/') # decorator makes the function a view/controller
 @app.route('/<name>') # captures whatever follows / as the name variable/arg
-def index(name):
+def index(name='Treehouse'):
     context = {'name': name}
     return render_template("index.html", **context)
 
