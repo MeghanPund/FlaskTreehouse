@@ -5,8 +5,9 @@ app = Flask(__name__)
 
 @app.route('/') # decorator makes the function a view/controller
 @app.route('/<name>') # captures whatever follows / as the name variable/arg
-def index(name="Treehouse"):
-    return f"Hello from {name}"
+def index(name):
+    context = {'name': name}
+    return render_template("index.html", **context)
 
 @app.route('/<int:num1>/<float:num2>')
 @app.route('/<float:num1>/<int:num2>')
